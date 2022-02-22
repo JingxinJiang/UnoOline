@@ -42,19 +42,8 @@ public class UnoOnline
         Scanner sc = new Scanner(System.in);
         System.out.println("please enter your desired user name:");
         String userName = sc.nextLine();
-        boolean validPassword=false;
-        String password="";
-        while(!validPassword)
-        {
-            System.out.println("Passwords must have at least 8 characters");
-            System.out.println("Passwords must have at least one special character");
-            System.out.println("Please enter your desired password:");             
-            password = sc.nextLine();
-            
-            //call passwordVerfied in PasswordValidator verified process
-            validPassword=PasswordValidator.passwordVerfied(password);
-            
-        }//loop only ends when password is valid so now we create the User
+        //use PasswordValidator check password
+        String password=PasswordValidator.passwordValidateHandle();
         
         User newUser = new User(userName, password);
         users[userCount] = newUser;//add the new user to the user list
